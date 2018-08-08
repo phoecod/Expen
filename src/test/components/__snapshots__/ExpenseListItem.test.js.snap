@@ -8,7 +8,7 @@ exports[`Should display a single list item 1`] = `
   </h4>
   <div>
     Amount: 
-    195
+    $195.00
     0
     <div>
       <button
