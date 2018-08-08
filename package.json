@@ -5,7 +5,6 @@
   "author": "Andrew Mead",
   "license": "MIT",
   "scripts": {
-    "serve": "live-server public/",
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
@@ -23,11 +22,8 @@
     "babel-preset-react": "^6.24.1",
     "babili-webpack-plugin": "^0.1.2",
     "css-loader": "^0.28.11",
-    "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
-    "enzyme-to-json": "^3.3.4",
     "extract-text-webpack-plugin": "^3.0.0",
-    "live-server": "^1.2.0",
     "moment": "^2.22.2",
     "node-sass": "4.5.3",
     "normalize.css": "7.0.0",
@@ -39,7 +35,6 @@
     "react-modal": "^3.4.4",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
-    "react-test-renderer": "^16.4.1",
     "react-transition-group": "1.x",
     "redux": "^4.0.0",
     "sass-loader": "6.0.6",
@@ -50,9 +45,13 @@
     "webpack-dev-server": "2.5.1"
   },
   "devDependencies": {
+    "chalk": "^2.4.1",
     "jest": "^23.1.0",
-    "webpack-bundle-analyzer": "^2.13.1"
-  }, 
+    "webpack-bundle-analyzer": "^2.13.1",
+    "enzyme": "^3.3.0",
+    "enzyme-to-json": "^3.3.4",
+    "react-test-renderer": "^16.4.1"
+  },
   "engines": {
     "node": "8.11.1",
     "yarn": "1.6.0"

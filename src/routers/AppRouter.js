@@ -4,7 +4,6 @@ import {BrowserRouter, Route, Switch, Link, NavLink} from 'react-router-dom';
 import landingPage from '../components/landingPage';
 import EditExpensePage from '../components/EditExpensePage';
 import CreateExpensePage from '../components/CreateExpensePage';
-import helpPage from '../components/helpPage';
 import notFoundPage from '../components/notFoundPage';
 import Header from '../components/header';
 
