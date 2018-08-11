@@ -3,8 +3,6 @@ import expenses from '../fixtures/expenseData';
 import moment from 'moment';
 
 
-
-
 test('should find results by text filter', () => {
 	const filters = {
 	text: 'e',
