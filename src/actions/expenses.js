@@ -8,12 +8,8 @@ export const addExpense = (expense) => ({
 
 export const startAddExpense = (expData) => {
 	return (dispatch) => {
-		console.log("/////////Before////////////");
-		console.log(expData);
-		console.log("/////////////////////");
 
 		if (Object.keys(expData).length === 0 && expData.constructor === Object) {
-			console.log("in");
 			expData = {
 				description: '',
 				note: '',
@@ -22,9 +18,6 @@ export const startAddExpense = (expData) => {
 			}
 		}
 
-		console.log("//////////After///////////");
-		console.log(expData);
-		console.log("/////////////////////");
 		return database.ref('expenses').push(expData)
 		.then((ref) => {
 			dispatch(addExpense({

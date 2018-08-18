@@ -8,7 +8,7 @@
     "build:dev": "webpack",
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
-    "test": "jest --config=jest.config.json",
+    "test": "cross-env NODE_ENV=test jest --config=jest.config.json",
     "start": "node server/server.js",
     "heroku-postbuild": "yarn run build:prod"
   },
@@ -21,12 +21,13 @@
     "babel-preset-env": "1.5.2",
     "babel-preset-react": "^6.24.1",
     "babili-webpack-plugin": "^0.1.2",
+    "cross-env": "^5.2.0",
     "css-loader": "^0.28.11",
     "enzyme-adapter-react-16": "^1.1.1",
     "extract-text-webpack-plugin": "^3.0.0",
-    "firebase": "^5.3.1",
+    "firebase": "5.4.0",
     "moment": "^2.22.2",
-    "node-sass": "4.5.3",
+    "node-sass": "^4.5.3",
     "normalize.css": "7.0.0",
     "numeral": "^2.0.6",
     "polyfill": "^0.1.0",
@@ -50,6 +51,7 @@
   },
   "devDependencies": {
     "chalk": "^2.4.1",
+    "dotenv": "^6.0.0",
     "enzyme": "^3.3.0",
     "enzyme-to-json": "^3.3.4",
     "jest": "^23.1.0",
@@ -57,7 +59,7 @@
     "webpack-bundle-analyzer": "^2.13.1"
   },
   "engines": {
-    "node": "8.11.1",
-    "yarn": "1.6.0"
+    "node": "10.9",
+    "yarn": "1.9.4"
   }
 }
