@@ -21,13 +21,15 @@ export default (state = defaultState.expenses, action) => {
 			return state.map((expense) => {
 				if (expense.id === action.id) {
 					return {
-						...expense,
+						...expense, 
 						...action.updates
 					}
 				} else {
 					return expense;
 				}
 			});
+		case 'SET_EXPENSE':
+			return action.expenses;
 		default:
 			return state;
 	}

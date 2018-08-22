@@ -62,3 +62,12 @@ test('return added expense', () => {
 	expenses[0].text = 'YOLO';
 	expect(state).toEqual(expenses.concat(action.expense));
 });
+
+test('set expenses', () => {
+	const action = {
+		type: 'SET_EXPENSES',
+		expenses: [expenses[1]]
+	}
+	const state = expenseReducer([expenses[1]], action);
+	expect(state).toEqual([expenses[1]]);
+});
