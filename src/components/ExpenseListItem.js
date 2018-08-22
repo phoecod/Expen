@@ -1,5 +1,5 @@
 import React from 'react';
-import {removeExpense, editExpense} from '../actions/expenses';
+import {startRemoveExpense} from '../actions/expenses';
 import { connect } from 'react-redux';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
@@ -12,7 +12,7 @@ export class ExpenseListItem extends React.Component {
 
 	onClick = () => {
 		const itemId = this.props.id;
-		this.props.removeExpense(itemId);
+		this.props.startRemoveExpense(itemId);
 	}
 
 	render () {
@@ -38,7 +38,7 @@ export class ExpenseListItem extends React.Component {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeExpense: (id) =>  dispatch(removeExpense({id}))
+		startRemoveExpense: (id) =>  dispatch(startRemoveExpense({id}))
 	}
 }
 

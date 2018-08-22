@@ -1,4 +1,4 @@
-import {startAddExpense, addExpense, editExpense, removeExpense, setExpenses} from '../../actions/expenses';
+import {startAddExpense, addExpense, editExpense, removeExpense, startRemoveExpense, setExpenses} from '../../actions/expenses';
 import expenses from '../fixtures/expenseData';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
@@ -7,9 +7,10 @@ import database from '../../firebase/firebase';
 
 const createMockStore = configureMockStore([thunk]);
 const store = createMockStore({});
+let expensesData = {};
 
 beforeEach((done) => {
-	let expensesData = {};
+	
 	expenses.forEach(({id, description, amount, note, createdAt}) => {
 		expensesData[id] = {description, amount, note, createdAt};
 		
@@ -17,13 +18,24 @@ beforeEach((done) => {
 	database.ref('expenses').set(expensesData).then(() => done());
 });
 
-/*        REMOVE EXPENSE FUNCTIONS TESTING       */
+	/////////////////////////////////////////
+	/*  REMOVE EXPENSE FUNCTIONS TESTING   */
+	/////////////////////////////////////////
 
-test('Should setup remove expense action object', () => {
-	const action = removeExpense({id: '123abc'});
-	expect(action).toEqual({
-		type: 'REMOVE_EXPENSE',
-		id: '123abc'
+test('should remove expense from firebase', (done) => {
+	const store = createMockStore({});
+	const id = expensesData[1].id;
+	store.dispatch(startRemoveExpense({id})).then(() => {
+		const action = store.getActions();
+		expect(action[0]).toEqual({
+			type: 'REMOVE_EXPENSE',
+			id
+		})
+		database.ref(`expenses/${id}`).once('value')
+		.then((snap) => {
+			expect(snap.val()).toBeFalsy();
+			done();
+		})
 	});
 });
 
@@ -94,7 +106,9 @@ test('should add expense with given values', () => {
 		});
 });
 
-/*            UPDATE FUNCTION TESTING    */
+	///////////////////////////////////////////
+	////      UPDATE FUNCTION TESTING    //////
+	///////////////////////////////////////////
 
 test('Should setup edit expense action object', () => {
 	const action = editExpense('123abc', {name: 'bouga'});
@@ -117,11 +131,15 @@ test('Should setup edit expense action object', () => {
 		}
 	});
 });
+
+	////////////////////////////////
+	// FETCH EXPENSES TEST       //
+	//////////////////////////////
 
 test('should setup set expense action object with data', () => {
 	const action = setExpenses(expenses);
 	expect(action).toEqual({
-		type: 'SET_EXPENSES',
+		type: 'SET_EXPENSE',
 		expenses
 	});
 })

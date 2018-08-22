@@ -21,8 +21,6 @@ export const ExpenseSummary = ({expensesCount, expensesTotal}) => {
 
 const mapStateToProps = (state) => {
 	const visibleExpenses = selectExpenses(state.expenses, state.filters);
-	console.log(visibleExpenses)
-
 	return {
 		expensesTotal: selectExpensesTotal(visibleExpenses),
 		expensesCount: visibleExpenses.length
