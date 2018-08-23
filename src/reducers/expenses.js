@@ -29,7 +29,6 @@ export default (state = defaultState.expenses, action) => {
 				}
 			});
 		case 'SET_EXPENSE':
-			console.log("in set")
 			return action.expenses;
 		default:
 			return state;

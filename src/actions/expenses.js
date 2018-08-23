@@ -1,4 +1,5 @@
 import database from '../firebase/firebase';
+import { doesNotReject } from 'assert';
 
 export const addExpense = (expense) => ({
 			type: 'ADD_EXPENSE',
@@ -6,23 +7,22 @@ export const addExpense = (expense) => ({
 		}
 	);
 
-export const startAddExpense = (expData) => {
+export const startAddExpense = (expense) => {
 	return (dispatch) => {
 
-		if (Object.keys(expData).length === 0 && expData.constructor === Object) {
-			expData = {
+		if (Object.keys(expense).length === 0 && expense.constructor === Object) {
+			expense = {
 				description: '',
 				note: '',
 				amount: 0,
 				createdAt: 0
 			}
 		}
-
-		return database.ref('expenses').push(expData)
+		return database.ref('expenses').push(expense)
 		.then((ref) => {
 			dispatch(addExpense({
 				id: ref.key,
-				...expData
+				...expense
 			}));
 		})
 	}
@@ -37,11 +37,21 @@ export const removeExpense = ({id = undefined}) => (
 
 export const editExpense = (id, updates) => (
 	{
-	type: 'EDIT_EXPENSE',
-	id: id,
-	updates: updates
+		type: 'EDIT_EXPENSE',
+		id,
+		updates
 	}	
 );
+
+export const startEditExpense = (id, updates) => {
+
+	return (dispatch) => {
+		return database.ref(`expenses/${id}`).update(updates)
+		.then(() => {
+			dispatch(editExpense(id,updates));
+		});
+	}
+}
 
 export const setExpenses = (expenses) => ({
 	type: 'SET_EXPENSE',
