@@ -7,11 +7,20 @@ body {
   font-size: $m-size;
 }
 
-button {
+.btn {
   cursor: pointer;
+  background: darkgreen;
+  color: white;
+  text-align: center;
+  width: $btn-width;
+  height: $btn-height;
+  border-radius: $s-size;
+  margin: $s-size 0;
+  border: 0;
+  box-shadow: none;
 }
 
-button:disabled {
+.btn:disabled {
   cursor: default;
 }
 

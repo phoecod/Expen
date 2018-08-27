@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render Login Page 1`] = `
+<div
+  id="login-main"
+>
+  <div
+    className="login-container"
+  >
+    <h2
+      className="login-title"
+    >
+      Expenso
+    </h2>
+    <div
+      id="login-form"
+    >
+      <input
+        className="login-form-field"
+      />
+      <input
+        className="login-form-field"
+      />
+      <button
+        className="login-form-field btn login"
+        onClick={[MockFunction]}
+      >
+        Login
+      </button>
+    </div>
+  </div>
+</div>
+`;

@@ -1,1 +1,25 @@
+
 $header-backgound: red;
+
+.nav-bar {
+	background: $header-backgound;
+	padding: $m-size $s-size;
+	margin-bottom: $m-size;
+}
+
+.nav-bar a {
+	text-decoration: none;
+	margin: 0;
+	padding: $s-size;
+	color: #1c3ed5;
+}
+
+.nav-bar a:hover {
+	background-color: #b4cb8b;
+}
+
+
+.header-btn {
+	margin: $s-size;
+}
+
