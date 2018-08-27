@@ -4,9 +4,9 @@ import configureMockStore from 'redux-mock-store';
 import expenses from '../fixtures/expenseData';
 import database from '../../firebase/firebase';
 
-
+const uid = 'testuid';
 const createMockStore = configureMockStore([thunk]);
-const store = createMockStore({});
+const store = createMockStore({ auth: { uid } });
 let expensesData = {};
 
 beforeAll((done) => {
@@ -14,7 +14,7 @@ beforeAll((done) => {
 		expensesData[id] = {description, amount, note, createdAt};
 	});
 	
-	database.ref('expenses').set(expensesData).then(() => done());
+	database.ref(`users/${uid}/expenses`).set(expensesData).then(() => done());
 });
 
 	/////////////////////////////////////////
@@ -30,7 +30,7 @@ test('should remove expense from firebase', (done) => {
 			type: 'REMOVE_EXPENSE',
 			id
 		})
-		database.ref(`expenses/${id}`).once('value')
+		database.ref(`users/${uid}/expenses/${id}`).once('value')
 		.then((snap) => {
 			expect(snap.val()).toBeFalsy();
 			done();
@@ -58,7 +58,7 @@ test('should add expense to database and redux store', (done) => {
 		})
 
 		//returns firebase database fetch promise to be tested
-		return database.ref(`expenses/${actions[1].expense.id}`).once('value')
+		return database.ref(`users/${uid}/expenses/${actions[1].expense.id}`).once('value')
 	})		
 	.then( (snapshot) => {
 		expect(snapshot.val()).toEqual(expensesData[1]);
@@ -81,7 +81,7 @@ test('should add expense default values to database and redux store', (done) => 
 		})
 
 		//returns firebase database fetch promise to be tested
-		return database.ref(`expenses/${actions[2].expense.id}`).once('value')
+		return database.ref(`users/${uid}/expenses/${actions[2].expense.id}`).once('value')
 	})		
 	.then( (snapshot) => {
 		expect(snapshot.val()).toEqual(expDefaults);
