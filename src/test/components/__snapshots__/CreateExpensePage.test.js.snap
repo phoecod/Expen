@@ -2,9 +2,6 @@
 
 exports[`should render CreateExpensePage correctly 1`] = `
 <div>
-  <h3>
-    Add Expense
-  </h3>
   <Connect(ExpenseForm)
     onSubmit={[Function]}
   />

@@ -9,11 +9,8 @@ export const LoginPage = ({startLogin}) => {
     <div id="login-main">
         <div className="login-container">
             <h2 className="login-title">Expenso</h2>
-            <div id="login-form">
-                <input className="login-form-field"></input>
-                <input className="login-form-field"></input>
-                <button className="login-form-field btn login" onClick={startLogin}>Login</button>
-            </div>
+            <p>Manage your expenses with ease!</p>
+            <button className="btn login-btn" onClick={startLogin}>Login with Google</button>
         </div>
     </div>
         

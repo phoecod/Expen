@@ -1,0 +1,26 @@
+.SingleDatePicker {
+    display:block !important;
+    margin-bottom: $s-size !important;
+}
+
+.form-container {
+    margin: $l-size 0;
+    display: flex;
+}
+
+.form-error{
+    margin-bottom: $m-size;
+    font-style: italic;
+    font-weight: bold;
+	color: #c5ae4fdb;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-frame {
+    margin: 0 15rem;
+    width: 70%;
+}

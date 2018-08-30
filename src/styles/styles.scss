@@ -1,4 +1,12 @@
-@import './base/_settings.scss';
-@import './base/_base.scss';
+@import './base/settings.scss';
+@import './base/base.scss';
 @import './components/header.scss';
 @import './components/login.scss';
+@import './components/ExpenseSummary.scss';
+@import './components/ExpenseListFilters.scss';
+@import './components/inputs.scss';
+@import './components/ExpenseForm.scss';
+@import './components/ExpenseList.scss'; 
+@import './components/loader.scss'; 
+
+ 

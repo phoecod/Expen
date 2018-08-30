@@ -1,0 +1,90 @@
+.table-header{
+    background: $light-red;
+    border: 1px solid darken($light-red, $amount: 10%);
+    display: flex;
+    justify-content: space-between;
+    padding: $s-size;
+    > * {
+        margin: 0 $s-size;
+    }
+}
+
+.item-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 1px solid $light-red;
+    border-top: 0;
+    padding: $m-size $l-size;
+    @media (max-width: $desktop-breakpoint) {
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: $s-size;
+    }
+}
+
+.item-left {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.item-right {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align:right;
+    @media (max-width: $desktop-breakpoint) {
+    text-align: left;
+    }
+}
+
+.item-btns {
+    margin-top: $s-size;
+    display: flex;
+    justify-content: flex-end;
+    min-width: 120px;
+    @media (max-width: $desktop-breakpoint) {
+        justify-content: flex-start;
+        > .sm-btn {
+            margin-left: 0;
+            margin-right: $s-size;
+        }
+    }
+}
+
+.item-description {
+    margin: $m-size 0;
+    word-break: break-all;
+}
+
+.item-date {
+    color: $dark-grey;
+    font-weight: 400;
+    font-size: 14px;
+}
+
+.item-amount {
+    font-weight: bold;
+}
+
+.sm-btn.delete {
+    color: $delete-red;
+    :hover {
+        color: darken($delete-red, 10%)
+    }
+}
+
+.sm-btn.edit {
+    color: $light-green;
+    margin-left:$l-size;
+    :hover {
+        color: darken( $light-green, 10%)
+    }
+}
+
+.table-container {
+    margin-bottom: $l-size;
+}

@@ -1,29 +1,43 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Should display a single list item 1`] = `
-<div>
-  <h4>
-     
-    Gum
-  </h4>
-  <div>
-    Amount: 
-    $195.00
+<div
+  className="item-list"
+>
+  <div
+    className="item-left"
+  >
+    <h3
+      className="item-description"
+    >
+       
+      Gum
+    </h3>
     0
-    <div>
+  </div>
+  <div
+    className="item-right"
+  >
+    <span
+      className="item-amount"
+    >
+      $195.00
+    </span>
+    <div
+      className="item-btns"
+    >
       <button
-        className="delete"
+        className="sm-btn delete"
         onClick={[Function]}
       >
-        Delete
+        <Component />
       </button>
       <Link
+        className="sm-btn edit"
         replace={false}
         to="/edit/1"
       >
-        <button>
-          Edit
-        </button>
+        <Component />
       </Link>
     </div>
   </div>

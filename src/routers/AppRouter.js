@@ -6,7 +6,6 @@ import EditExpensePage from '../components/EditExpensePage';
 import CreateExpensePage from '../components/CreateExpensePage';
 import notFoundPage from '../components/notFoundPage';
 import LoginPage from '../components/LoginPage';
-import Header from '../components/header';
 import PrivateRoute from './PrivateRoute';
 
 export const history = createHistory();

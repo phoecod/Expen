@@ -2,28 +2,76 @@ html {
   font-size: 75%;
 }
 
+* {
+  box-sizing: border-box;
+}
 body {
+  color: $dark-grey;
+  line-height: 1.6;
   font-family: Helvetica, Arial, sans-serif;
-  font-size: $m-size;
+  font-size: $font-size;
+  background-clip: padding-box;
+  font-weight: 500;
 }
 
 .btn {
   cursor: pointer;
-  background: darkgreen;
+  background: $light-green;
   color: white;
   text-align: center;
-  width: $btn-width;
-  height: $btn-height;
+  padding: $s-size;
   border-radius: $s-size;
-  margin: $s-size 0;
+  margin-bottom: $s-size;
   border: 0;
   box-shadow: none;
+  text-decoration: none; 
+  display: inline-block;
 }
+
+.sm-btn {
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  margin-left: 10px;
+  max-width: 50px;
+  max-height: 30px;
+}
+
 
 .btn:disabled {
   cursor: default;
 }
 
-.is-active {
-	font-weight: bold;
+////////////////////////
+//  *header css*   ////
+//////////////////////
+
+.header-title {
+  font-weight: 200;
+}
+
+.page-header {
+  background: $off-green;
+  padding: $m-size $s-size;
+  
+}
+.frame {
+  padding: 0 $app-spacing;
+  width: 100%;
+}
+
+/////////////////////////
+/// *mobile css* ///////
+////////////////////////
+
+.show-for-mobile {
+  @media (min-width: $desktop-breakpoint) {
+    display: none;
+  }
+}
+
+.show-for-desktop {
+  @media (max-width: $desktop-breakpoint - .01rem) {
+    display: none;
+  }
 }

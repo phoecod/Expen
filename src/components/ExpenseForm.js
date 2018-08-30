@@ -29,12 +29,12 @@ export const ExpenseForm = class ExpenseForm extends React.Component {
 			createdAt: this.state.createdAt.valueOf()
 		}
 		if (!this.state.amount) {
-			this.setState( () => ({amountError: 'Amount cannot be empty and needs to be greater than 0 with no more than 2 decimal places'}));
+			this.setState( () => ({amountError: 'Amount cannot be empty and needs to be greater than 0 up to 2 decimal places'}));
 			this.setState( () => ({amount: ''}))
 		}
 
 		if (this.state.description.length == 0) {
-			this.setState(() => ({descError: 'Description cannot be Empty'}));
+			this.setState(() => ({descError: 'Description cannot be empty'}));
 			this.setState(() => ({description: ''}));
 		}
 
@@ -79,25 +79,38 @@ export const ExpenseForm = class ExpenseForm extends React.Component {
 	}
 
 	render () {
-		return ( 	
+		return (
 			<div>
-				<form onSubmit={this.handleAddFormExpense}>
-					{this.state.descError && <p>{this.state.descError}</p>}
-					<input value={this.state.description} onChange={this.handleDescription}  placeholder={this.formPh.description} name={this.formPh.description}/><br/>
-					{this.state.amountError && <p>{this.state.amountError}</p>}
-					<input value={this.state.amount} onChange={this.handleAmount} 
-						placeholder={this.formPh.amount} name={this.formPh.amount}/><br/>
-					<SingleDatePicker
-			            date={this.state.createdAt}
-			            onDateChange={this.onDateChange}
-			            focused={this.state.calendarFocused}
-			            onFocusChange={this.onFocusChange}
-			            numberOfMonths={1}
-			            isOutsideRange={() => false}
-		          	/>
-					<textarea 	value={this.state.note}  onChange={this.handleNote} type="text" placeholder={this.formPh.note} name={this.formPh.note}/><br/>
-					<button>{this.props.expense ? 'Edit Expense' : 'Add Expense'}</button>
-				</form>
+				<div className="page-header">
+					<div className="form-frame">
+						<h3 className="header-title">{this.props.expense ? 'Edit Expense' : 'Add Expense'}</h3>
+					</div>
+				</div> 	
+				<div className="form-container">
+					<div className="form-frame">
+						<form className="form" onSubmit={this.handleAddFormExpense}>
+							{this.state.descError && <p className="form-error">{this.state.descError}</p>}
+							<input className="form-input text-input" value={this.state.description} onChange={this.handleDescription}  placeholder={this.formPh.description} name={this.formPh.description}/><br/>
+							{this.state.amountError && <p className="form-error">{this.state.amountError}</p>}
+							<input className="form-input text-input" value={this.state.amount} onChange={this.handleAmount} 
+								placeholder={this.formPh.amount} name={this.formPh.amount}/><br/>
+							<SingleDatePicker
+								className="form-input"
+								date={this.state.createdAt}
+								onDateChange={this.onDateChange}
+								focused={this.state.calendarFocused}
+								onFocusChange={this.onFocusChange}
+								numberOfMonths={1}
+								isOutsideRange={() => false}
+							/>
+							<textarea className="form-input textarea" value={this.state.note}  onChange={this.handleNote} type="text" placeholder={this.formPh.note} name={this.formPh.note}/><br/>
+							<div>
+							<button className="btn">{this.props.expense ? 'Edit Expense' : 'Add Expense'}</button>
+							</div>
+							
+						</form>
+					</div>
+				</div>
 			</div>
 		);
 	}

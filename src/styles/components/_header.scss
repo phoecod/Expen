@@ -1,0 +1,26 @@
+.header-margin {
+	background-color: $off-green;
+	height:30px;
+}
+
+.header {
+	background-color: $dark-green;
+	padding: $m-size $s-size;
+}
+
+
+.nav-bar {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+.nav-btn {
+	text-decoration: none;
+	color:white;
+	h2 {
+		margin: 0;
+	}
+
+}
+

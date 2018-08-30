@@ -19,7 +19,7 @@ test('should render CreateExpensePage correctly', () => {
 
 test('should handle onSubmit', () => {
 	wrapper.find('Connect(ExpenseForm)').prop('onSubmit')(expData[1]);
-	expect(history.push).toHaveBeenLastCalledWith('/');
+	expect(history.push).toHaveBeenLastCalledWith('/dashboard');
 	expect(startAddExpense).toHaveBeenLastCalledWith(expData[1]);
 });
 

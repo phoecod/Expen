@@ -21,7 +21,9 @@ export const startAddExpense = (expense) => {
 				id: ref.key,
 				...expense
 			}));
-		})
+		}).catch((err) => {
+			console.log(err)
+		});
 	}
 }
 
@@ -38,6 +40,8 @@ export const startEditExpense = (id, updates) => {
 		return database.ref(`users/${uid}/expenses/${id}`).update(updates)
 		.then(() => {
 			dispatch(editExpense(id,updates));
+		}).catch((err) => {
+			console.log(err)
 		});
 	}
 }

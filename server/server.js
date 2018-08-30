@@ -13,5 +13,4 @@ app.get('*', (req, response) => {
 });
 
 app.listen(port, () => {
-	console.log("server running!");
 });

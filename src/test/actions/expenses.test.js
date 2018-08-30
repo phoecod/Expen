@@ -13,7 +13,6 @@ beforeAll((done) => {
 	expenses.forEach(({id, description, amount, note, createdAt}) => {
 		expensesData[id] = {description, amount, note, createdAt};
 	});
-	
 	database.ref(`users/${uid}/expenses`).set(expensesData).then(() => done());
 });
 
